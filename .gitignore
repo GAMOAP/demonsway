@@ -37,6 +37,10 @@
 *.app
 
 ### Cocos2dx ###
+
+#Ignore cocos engine
+cocos2d/
+
 # Ignore thumbnails created by windows
 Thumbs.db
 
