@@ -10,9 +10,9 @@
 
 #include "cocos2d.h"
 
-#include "../DisplayObjects/DisplayScores.hpp"
-#include "../DisplayObjects/DisplayGrid.hpp"
-#include "../DisplayObjects/DisplayDemonsGrid.hpp"
+#include "DisplayScores.hpp"
+#include "DisplayGrid.hpp"
+#include "DisplayDemonsGrid.hpp"
 
 class GameScene : public cocos2d::Scene
 {

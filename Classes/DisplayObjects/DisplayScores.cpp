@@ -42,20 +42,20 @@ bool DisplayScores::init()
     
     // create and place score label
     _labelScore = Label::createWithBMFont("fonts/font_score.fnt", std::to_string(_score));
-    float labelScoreSize = 60.0f;
+    float labelScoreSize = 96.0f;
     _labelScore->setBMFontSize(labelScoreSize);
     _labelScore->setAlignment(TextHAlignment::CENTER);
-    _labelScore->setPosition(Vec2(0, labelScoreSize * 3/4));
+    _labelScore->setPosition(Vec2(0, labelScoreSize * 1/3));
     
     scores->addChild(_labelScore, 0);
     
     // create and place combo label
     _labelCombo = Label::createWithBMFont("fonts/font_combo.fnt", std::to_string(_combo));
-    float labelComboSize = 36.0f;
+    float labelComboSize = labelScoreSize/2;
     _labelCombo->setBMFontSize(labelComboSize);
     _labelCombo->setAlignment(TextHAlignment::CENTER);
     _labelCombo->setColor(Color3B::YELLOW);
-    _labelCombo->setPosition(Vec2(0, - labelComboSize * 3/4));
+    _labelCombo->setPosition(Vec2(0, - labelScoreSize/2));
     _labelCombo->setOpacity(0);
     
     scores->addChild(_labelCombo, 1);
