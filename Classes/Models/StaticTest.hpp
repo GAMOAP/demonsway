@@ -33,9 +33,10 @@ public:
      * @brief Get the demon list to move in the demons grid.
      * @param demonsActionList list content demon pointer can move.
      * @param demonsInGridList list content all demon pointer in grid.
+     * @param gridArray grid shape array.
      * @return demon list to move.
     */
-    static std::vector<Demon*> getMoveDemonList(std::vector<Demon*> demonsActionList, std::vector<Demon*> demonsInGridList);
+    static std::vector<Demon*> getMoveDemonList(std::vector<Demon*> demonsActionList, std::vector<Demon*> demonsInGridList, std::vector<std::vector<int>> gridArray);
     
     /**
      * @brief Get the demon list to remove in the demons grid.
@@ -53,7 +54,17 @@ public:
     */
     static bool getCaseFree(int l, int c, std::vector<Demon*> demonsList);
     
+    
 private:
+    
+    /**
+     * @brief Get if the case is in the grid.
+     * @param l case tested line.
+     * @param c case tested collumn.
+     * @param gridArray grid shape arra.
+     * @return Is in grid case boolean.
+    */
+    static bool getCaseIsInGrid(int l, int c, std::vector<std::vector<int>> gridArray);
     
     /**
      * @brief is the demon win the conflict case.

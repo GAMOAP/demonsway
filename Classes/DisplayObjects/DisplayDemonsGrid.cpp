@@ -12,11 +12,11 @@
 
 USING_NS_CC;
 
-DisplayDemonsGrid* DisplayDemonsGrid::create(cocos2d::Sprite* divingBoard)
+DisplayDemonsGrid* DisplayDemonsGrid::create(cocos2d::Sprite* divingBoard, std::vector<std::vector<int>> gridArray)
 {
     //create new instance pointer
     DisplayDemonsGrid* ret = new (std::nothrow) DisplayDemonsGrid();
-    if(ret && ret->init (divingBoard))
+    if(ret && ret->init (divingBoard, gridArray))
     {
         ret->autorelease();
         return ret;
@@ -29,10 +29,13 @@ DisplayDemonsGrid* DisplayDemonsGrid::create(cocos2d::Sprite* divingBoard)
     }
 }
 
-bool DisplayDemonsGrid::init(cocos2d::Sprite* divingBoard)
+bool DisplayDemonsGrid::init(cocos2d::Sprite* divingBoard, std::vector<std::vector<int>> gridArray)
 {
     //init diving board pointer
     _divingBoard = divingBoard;
+    
+    //init grid array shape
+    _gridArray = gridArray;
     
     //clean demons arrays
     _demonsActionList.clear();
@@ -211,7 +214,7 @@ bool DisplayDemonsGrid::moveDemonsGrid()
     // init demon can move list
     _demonsToMoveList.clear();
     std::vector<Demon*>::iterator moveIt;
-    _demonsToMoveList = StaticTest::getMoveDemonList(_demonsActionList, _demonsInGridList);
+    _demonsToMoveList = StaticTest::getMoveDemonList(_demonsActionList, _demonsInGridList, _gridArray);
     
     for(moveIt = _demonsToMoveList.begin(); moveIt != _demonsToMoveList.end(); moveIt++)
     {

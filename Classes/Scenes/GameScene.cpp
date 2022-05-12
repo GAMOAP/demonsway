@@ -61,8 +61,17 @@ bool GameScene::init()
     _scoresDisplay->setPosition(Vec2(visibleSize.width/2 + origin.x, (visibleSize.height * 3 + StaticGrid::getGridSize().height)/4));
     this->addChild(_scoresDisplay, 3);
     
+    // create grid array
+    Grid grid;
+    grid.gridArray = {{0,1,1,1,1,0},
+                    {1,1,1,1,1,1},
+                    {1,1,1,1,1,1},
+                    {1,1,1,0,1,1},
+                    {1,1,1,1,1,1},
+                    {0,1,1,1,1,0}};
+    
     // create and add display grid (display grid use static grid to set position)
-    _gridDisplay = DisplayGrid::create();
+    _gridDisplay = DisplayGrid::create(grid);
     this->addChild(_gridDisplay, 1);
     
     // create and add divingBoard
@@ -71,7 +80,7 @@ bool GameScene::init()
     this->addChild(_divingBoard,2);
     
     // create and add display grid (display grid use static grid to set position)
-    auto demonsGridDisplay = DisplayDemonsGrid::create(_divingBoard);
+    auto demonsGridDisplay = DisplayDemonsGrid::create(_divingBoard, grid.gridArray);
     this->addChild(demonsGridDisplay, 3);
     
     // remove events listeners (create duplicate when restart a new GameScene)

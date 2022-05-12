@@ -11,22 +11,25 @@
 #include "cocos2d.h"
 #include "../Models/StaticGrid.hpp"
 
+struct Grid
+{
+    std::vector<std::vector<int>> gridArray;
+};
+
+
 class DisplayGrid : public cocos2d::Node
 {
 public:
-    static DisplayGrid* create();
+    static DisplayGrid* create(Grid grid);
 
-    virtual bool init();
+    virtual bool init(Grid grid);
     
 private:
     
     const int BTN_SHIFT_HEIGHT = 24;
-    const int gridArray [GRID_NBR_CASE][GRID_NBR_CASE] = {{1,1,1,1,1,1},
-                                                  {1,1,1,1,1,1},
-                                                  {1,1,1,1,1,1},
-                                                  {1,1,1,1,1,1},
-                                                  {1,1,1,1,1,1},
-                                                  {1,1,1,1,1,1}};
+    
+    //Used grid attribute
+    Grid _grid;
     
     /**
      * @brief Dispath event "GRID_BTN_PUSH" and vector content button pushed line and collumn.

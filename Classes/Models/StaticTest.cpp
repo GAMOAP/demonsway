@@ -10,7 +10,7 @@
 #include "StaticGrid.hpp"
 
 
-std::vector<Demon*> StaticTest::getMoveDemonList(std::vector<Demon*> demonsActionList, std::vector<Demon*> demonsInGridList)
+std::vector<Demon*> StaticTest::getMoveDemonList(std::vector<Demon*> demonsActionList, std::vector<Demon*> demonsInGridList, std::vector<std::vector<int>> gridArray)
 {
     std::vector<Demon*> demonsMovingList;
     
@@ -28,8 +28,7 @@ std::vector<Demon*> StaticTest::getMoveDemonList(std::vector<Demon*> demonsActio
         // check if new case is in grid and
         // if new case is free and
         // if new case is not occuped by an other demon deplacement
-        if(newL >= 0 && newL < GRID_NBR_CASE &&
-           newC >= 0 && newC < GRID_NBR_CASE &&
+        if(StaticTest::getCaseIsInGrid(newL, newC, gridArray) &&
            StaticTest::getCaseFree(newL, newC, demonsInGridList) &&
            StaticTest::isConflictCaseWin(demonsActionList, demon))
         {
@@ -136,6 +135,22 @@ std::vector<Demon*> StaticTest::getRemoveDemonList(std::vector<Demon*> demonsLis
     demonToRemoveList.erase( std::unique( demonToRemoveList.begin(), demonToRemoveList.end() ), demonToRemoveList.end() );
     
     return demonToRemoveList;
+}
+
+bool StaticTest::getCaseIsInGrid(int l, int c, std::vector<std::vector<int>> gridArray)
+{
+    bool isInGrid = false;
+    if(gridArray[l][c] == 1)
+    {
+        isInGrid = true;
+    }
+    // check if grid case (l c) tested exist
+    // return false if case doesn't exist
+    
+        
+    
+    
+    return isInGrid;
 }
 
 bool StaticTest::getCaseFree(int l, int c, std::vector<Demon*> demonsList)

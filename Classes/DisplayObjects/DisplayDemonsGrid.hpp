@@ -15,9 +15,15 @@
 class DisplayDemonsGrid : public cocos2d::Node
 {
 public:
-    static DisplayDemonsGrid* create(cocos2d::Sprite* divingBoard);
+    static DisplayDemonsGrid* create(cocos2d::Sprite* divingBoard, std::vector<std::vector<int>> gridArray);
 
-    virtual bool init(cocos2d::Sprite* divingBoard);
+    /**
+     * @brief init grid where move demon.
+     * @param divingBoard image of diviing board.
+     * @param gridArray grid shape array.
+     * @return init OK.
+    */
+    virtual bool init(cocos2d::Sprite* divingBoard, std::vector<std::vector<int>> gridArray);
     
     /**
      * @brief add new demon into the grid.
@@ -33,6 +39,8 @@ private:
     const float DEMON_IN_GRID_SCALE = 0.8;
     
     cocos2d::Sprite* _divingBoard = nullptr;
+    
+    std::vector<std::vector<int>> _gridArray;
     
     int _actionTurn = 0;
     
