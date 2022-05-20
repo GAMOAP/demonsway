@@ -9,7 +9,7 @@
 #include "GameScene.hpp"
 
 #include "DisplayBackground.hpp"
-#include "DisplayDecor.hpp"
+#include "DisplayPlayerBanner.hpp"
 
 #include "StaticSounds.hpp"
 
@@ -39,11 +39,15 @@ bool HomeScene::init()
     background->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
     this->addChild(background, 0);
     
-    // create and add displayDecor
-    auto decor = DisplayDecor::create();
-    decor->addTitle();
-    decor->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height * 2/3 + origin.y));
-    this->addChild(decor, 0);
+    // create and add title image
+    auto title = Sprite::createWithSpriteFrameName("title@2x.png");
+    title->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    this->addChild(title, 0);
+    
+    // create and player banner
+    auto playerBanner = DisplayPlayerBanner::create();
+    playerBanner->setPosition(Vec2(visibleSize.width * 1/4 + origin.x, visibleSize.height * 3/4 + origin.y));
+    this->addChild(playerBanner);
         
     // create start button images, add to menu and place
     auto startBtnNormal = Sprite::createWithSpriteFrameName("button_start_normal@2x.png");
@@ -53,7 +57,17 @@ bool HomeScene::init()
                                                startBtnSelected,
                                                CC_CALLBACK_1(HomeScene::menuPlayCallback, this));
         
-    startBtn->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height * 1/4 + origin.y));
+    startBtn->setPosition(Vec2(visibleSize.width * 1/4 + origin.x, visibleSize.height * 1/5 + origin.y));
+    
+    // create start button images, add to menu and place
+    auto multiBtnNormal = Sprite::createWithSpriteFrameName("button_multi_normal@2x.png");
+    auto multiBtnSelected = Sprite::createWithSpriteFrameName("button_multi_selected@2x.png");
+    auto multiBtn = MenuItemSprite::create(
+                                               multiBtnNormal,
+                                               multiBtnSelected,
+                                               CC_CALLBACK_1(HomeScene::menuPlayCallback, this));
+        
+    multiBtn->setPosition(Vec2(visibleSize.width * 3/4 + origin.x, visibleSize.height * 1/5 + origin.y));
         
     // create sound button images, add to menu and place
     
@@ -69,7 +83,7 @@ bool HomeScene::init()
                                 origin.y + visibleSize.height - soundBtn->getContentSize().height/2));
     
     // create, place and add menu
-    auto menu = Menu::create(startBtn, soundBtn, NULL);
+    auto menu = Menu::create(startBtn, multiBtn, soundBtn, NULL);
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
     

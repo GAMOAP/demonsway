@@ -38,6 +38,7 @@
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
+		9349584C282DAA2600B486C6 /* DisplayPlayerBanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9349584A282DAA2600B486C6 /* DisplayPlayerBanner.cpp */; };
 		93790BF7281BBF330039892B /* StaticSounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93790BF3281BBF330039892B /* StaticSounds.cpp */; };
 		93790BF8281BBF330039892B /* StaticSounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93790BF3281BBF330039892B /* StaticSounds.cpp */; };
 		93790BF9281BBF330039892B /* StaticTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93790BF5281BBF330039892B /* StaticTest.cpp */; };
@@ -146,6 +147,8 @@
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9349584A282DAA2600B486C6 /* DisplayPlayerBanner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayPlayerBanner.cpp; sourceTree = "<group>"; };
+		9349584B282DAA2600B486C6 /* DisplayPlayerBanner.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DisplayPlayerBanner.hpp; sourceTree = "<group>"; };
 		93790BF1281BBF330039892B /* StaticSounds.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StaticSounds.hpp; sourceTree = "<group>"; };
 		93790BF2281BBF330039892B /* StaticTest.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StaticTest.hpp; sourceTree = "<group>"; };
 		93790BF3281BBF330039892B /* StaticSounds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StaticSounds.cpp; sourceTree = "<group>"; };
@@ -362,6 +365,8 @@
 				93790C0D281BBFC00039892B /* DisplayGrid.hpp */,
 				93790C09281BBFC00039892B /* DisplayScores.cpp */,
 				93790C05281BBFC00039892B /* DisplayScores.hpp */,
+				9349584A282DAA2600B486C6 /* DisplayPlayerBanner.cpp */,
+				9349584B282DAA2600B486C6 /* DisplayPlayerBanner.hpp */,
 			);
 			path = DisplayObjects;
 			sourceTree = "<group>";
@@ -527,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93790C15281BBFC00039892B /* DisplayDemonsGrid.cpp in Sources */,
+				9349584C282DAA2600B486C6 /* DisplayPlayerBanner.cpp in Sources */,
 				1AF87B781F6F77F7007BE51C /* AppController.mm in Sources */,
 				93790C1B281BBFC00039892B /* DisplayBackground.cpp in Sources */,
 				93790BFB281BBF330039892B /* StaticGrid.cpp in Sources */,
