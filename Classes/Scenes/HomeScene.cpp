@@ -46,7 +46,7 @@ bool HomeScene::init()
     
     // create and player banner
     auto playerBanner = DisplayPlayerBanner::create();
-    playerBanner->setPosition(Vec2(visibleSize.width * 1/4 + origin.x, visibleSize.height * 3/4 + origin.y));
+    playerBanner->setPosition(Vec2(0, visibleSize.height * 3/4 + origin.y));
     this->addChild(playerBanner);
         
     // create start button images, add to menu and place
